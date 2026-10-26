@@ -3898,7 +3898,7 @@
       // Token in the query string as well as the body: the URL token is what
       // authorizes the CORS preflight when the page runs on a non-loopback
       // dev host (ddev, Valet), since the preflight carries no request body.
-      const res = await fetch('http://localhost:' + PORT + '/manual-edit-stash?token=' + encodeURIComponent(TOKEN), {
+      const res = await fetch('http://localhost:' + PORT + '/manual-edit-stash' + (location.origin === 'http://localhost:' + PORT ? '' : '?token=' + encodeURIComponent(TOKEN)), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
